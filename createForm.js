@@ -24,13 +24,19 @@ fetch(url, {
     },
     body: JSON.stringify(query)
 })
-  .then(response => response.json())
-  .then(data => populatePage(data))    
+  .then((response) => {
+	console.log(response)
+	response.json()})
+  .then((data) => {
+	console.log(data)
+	populatePage(data)
+	})    
     //.then(data => )
     //.catch(err => showErrorMsg(err))
 
 //Populate the portal
 async function populatePage(data) {
+    console.log(data)	
     document.getElementById('intakeDate').innerHTML = data.intakeDate;
     document.getElementById('clientName').innerHTML = data.clientName;
     document.getElementById('age').innerHTML = data.age;
