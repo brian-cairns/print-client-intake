@@ -10,7 +10,7 @@ document.getElementById('saveToPrintSection').style.display = "none";
 
 //Get the data to populate the field
 const client = sessionStorage.getItem('userName');
-const url = 'https://pffm.azurewebsites.net/'
+const url = 'https://pffm.azurewebsites.net/getForms'
 const query = {
     form: 'newClientIntake',
     itemId: id
