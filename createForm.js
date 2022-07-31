@@ -17,7 +17,7 @@ const query = {
     itemId: id
 }
 fetch(url, {
-    method: "GET",
+    method: "POST",
     headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*"
