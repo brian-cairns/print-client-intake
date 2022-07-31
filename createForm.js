@@ -24,13 +24,8 @@ fetch(url, {
     },
     body: JSON.stringify(query)
 })
-  .then((response) => {
-	console.log(response)
-	response.json()})
-  .then((data) => {
-	console.log(data)
-	populatePage(data)
-	})    
+  .then(response => response.json())
+  .then(data) => populatePage(data))    
     //.then(data => )
     //.catch(err => showErrorMsg(err))
 
