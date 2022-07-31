@@ -25,7 +25,7 @@ fetch(url, {
     body: JSON.stringify(query)
 })
   .then(response => response.json())
-  .then(data) => populatePage(data))    
+  .then(data => populatePage(data))    
     //.then(data => )
     //.catch(err => showErrorMsg(err))
 
