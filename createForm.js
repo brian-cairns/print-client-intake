@@ -1,3 +1,7 @@
+//Accept and parse query string
+const params = new URLSearchParams(window.location.search)
+for (const [key, value] of params) { let id = value; }
+
 //Turn on load animation and hide main content until loaded.
 document.getElementById('titleSection').style.display = "none";
 document.getElementById('completedForm').style.display = "none";
@@ -9,7 +13,7 @@ const client = sessionStorage.getItem('userName');
 const url = 'https://pffm.azurewebsites.net/'
 const query = {
     form: 'newClientIntake',
-    user: client
+    itemId: id
 }
 fetch(url, {
     method: "GET",
