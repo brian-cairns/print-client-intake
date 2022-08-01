@@ -1,7 +1,10 @@
 //Accept and parse query string
+/*
 let id = ''
 const params = new URLSearchParams(window.location.search)
 for (const [key, value] of params) { id = value; }
+*/
+let id = sessionStorage.getItem('userName')
 
 //Turn on load animation and hide main content until loaded.
 document.getElementById('titleSection').style.display = "none";
@@ -12,17 +15,13 @@ document.getElementById('saveToPrintSection').style.display = "none";
 //Get the data to populate the field
 const client = sessionStorage.getItem('userName');
 const url = 'https://pffm.azurewebsites.net/getForms'
-const query = {
-    form: 'newClientIntake',
-    itemId: id
-}
+const uri = `${url}?form=newClientIntake&id=${id}`
 fetch(url, {
-    method: "POST",
+    method: "GET",
     headers: {
-        "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "*"
     },
-    body: JSON.stringify(query)
+    
 })
   .then(response => response.json())
   .then(data => populatePage(data))    
