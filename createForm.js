@@ -14,8 +14,8 @@ document.getElementById('saveToPrintSection').style.display = "none";
 
 //Get the data to populate the field
 const client = sessionStorage.getItem('userName');
-const url = 'https://pffm.azurewebsites.net/getForms'
-const uri = `${url}?form=newClientIntake&id=${id}`
+const url = `https://pffm.azurewebsites.net/getForms?form=newClientIntake&id=${id}`
+console.log(id)
 fetch(url, {
     method: "GET",
     headers: {
