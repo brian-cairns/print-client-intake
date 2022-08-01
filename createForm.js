@@ -1,10 +1,8 @@
-//Accept and parse query string
-/*
+
 let id = ''
 const params = new URLSearchParams(window.location.search)
 for (const [key, value] of params) { id = value; }
-*/
-let id = sessionStorage.getItem('userName')
+
 
 //Turn on load animation and hide main content until loaded.
 document.getElementById('titleSection').style.display = "none";
