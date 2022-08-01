@@ -33,6 +33,8 @@ async function populatePage(data) {
     document.getElementById('clientName').innerHTML = data.clientName;
     document.getElementById('age').innerHTML = data.age;
     document.getElementById('dob').innerHTML = data.dob;
+    document.getElementById('grade').innerHTML = data.grade
+    document.getElementById('strengths').innerHTML = data.strengths
     document.getElementById('caregiverName').innerHTML = data.caregiverName;
     document.getElementById('caregiverEmail').innerHTML = data.caregiverEmail;
     document.getElementById('caregiverPhone').innerHTML = data.caregiverPhone;
@@ -41,7 +43,7 @@ async function populatePage(data) {
     document.getElementById('sensoryNeeds').innerHTML = data.sensoryNeeds;
     document.getElementById('medical').innerHTML = data.medical;
     document.getElementById('services').innerHTML = data.services;
-    document.getElementById('hrsOfService').innerHTML = data.hrsOfService;
+    document.getElementById('hrsOfService').innerHTML = data.hrsOfServices;
     document.getElementById('availability').innerHTML = data.availability;
     document.getElementById('notes').innerHTML = data.notes;
     
