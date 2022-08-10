@@ -69,23 +69,14 @@ function showErrorMsg(err) {
 
 const printToPDF = document.getElementById('printToPDF')
 printToPDF.addEventListener('click', (e) => {
-    // Create an IFrame.
-    var iframe = document.createElement('iframe');  
-    // Hide the IFrame.  
-    iframe.style.visibility = "hidden"; 
-    // Define the source.  
-    iframe.src = pdf;        
-    // Add the IFrame to the web page.
-    document.body.appendChild(iframe);  
-    iframe.contentWindow.focus();       
-    iframe.contentWindow.print();
+    window.print()
     
 })
 
 function notify(to, message, type) {
     toSend = {
-        'to': to,
-        'message': message,
+        'name': to,
+        'notice': message,
         'type': type
     }
 
