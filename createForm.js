@@ -19,13 +19,12 @@ fetch(url, {
     method: "GET",
     headers: {
         "Access-Control-Allow-Origin": "*"
-    },
-    
+    }
 })
   .then(response => response.json())
   .then(data => populatePage(data))    
     //.then(data => )
-    //.catch(err => showErrorMsg(err))
+  .catch(err => showErrorMsg(err))
 
 //Populate the portal
 async function populatePage(data) {
@@ -72,15 +71,16 @@ function showErrorMsg(err) {
 
 const printToPDF = document.getElementById('printToPDF')
 printToPDF.addEventListener('click', (e) => {
-    const file = document.body
-    domtoimage.toJpeg(document.getElementById(file), { quality: 0.95 })
-    .then(function (dataUrl) {
-        var link = document.createElement('a');
-        link.download = `${form}.jpeg`;
-        link.href = dataUrl;
-        link.click();
-    })
-    .catch(console.error);
+    // Create an IFrame.
+    var iframe = document.createElement('iframe');  
+    // Hide the IFrame.  
+    iframe.style.visibility = "hidden"; 
+    // Define the source.  
+    iframe.src = pdf;        
+    // Add the IFrame to the web page.
+    document.body.appendChild(iframe);  
+    iframe.contentWindow.focus();       
+    iframe.contentWindow.print();
     
 })
 
