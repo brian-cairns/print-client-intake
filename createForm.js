@@ -1,3 +1,4 @@
+const domtoimage = require('dom-to-image');
 
 let id = ''
 const params = new URLSearchParams(window.location.search)
@@ -49,6 +50,8 @@ async function populatePage(data) {
     
     //more to come as we get more data
     showPage()
+    const message = `A new client intake form was completed for ${data.clientName}`
+    notify('admin', message, 'general')
 }
 
 //Turns off animation and shows the page with data fields completed
@@ -69,5 +72,37 @@ function showErrorMsg(err) {
 
 const printToPDF = document.getElementById('printToPDF')
 printToPDF.addEventListener('click', (e) => {
-    //add in a function to print to PDF
+    const file = document.body
+    domtoimage.toJpeg(document.getElementById(file), { quality: 0.95 })
+    .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = `${form}.jpeg`;
+        link.href = dataUrl;
+        link.click();
+    })
+    .catch(console.error);
+    
 })
+
+function notify(to, message, type) {
+    toSend = {
+        'to': to,
+        'message': message,
+        'type': type
+    }
+
+    const url = `https://pffm.azurewebsites.net/notices`
+    const header = {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
+    }
+
+    fetch(url, {
+        method: 'POST',
+        headers: header,
+        body: JSON.stringify(toSend)
+    })
+        .then(() => console.log(`message to ${to} was sent`))
+        .catch(console.error)
+    
+}
