@@ -1,5 +1,3 @@
-const domtoimage = require('dom-to-image');
-
 let id = ''
 const params = new URLSearchParams(window.location.search)
 for (const [key, value] of params) { id = value; }
