@@ -1,5 +1,3 @@
-const { stat } = require("fs");
-
 let id = ''
 const params = new URLSearchParams(window.location.search)
 for (const [key, value] of params) { id = value; }
@@ -167,7 +165,7 @@ async function updateClient(clientData) {
         data: clientData,
         clientName: clientData.clientName
     }
-    fetch('https://pffm.azurewebsites.net/updateClient', {
+    fetch('https://pffm.azurewebsites.net/updateClient/intake', {
         method: "POST",
         headers: {
             'Content-Type': 'application/json',
